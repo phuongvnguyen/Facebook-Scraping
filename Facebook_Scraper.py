@@ -1,7 +1,6 @@
 """
 This program is to scrape data on the post from a specific Facebook fan page.
-In this program, we target the bank.hvnh fanpage. However, one can change this configuration for his/her own needs.
-After running this program, the excel and CSV files are produced
+In this program, we target the BIDVbankvietnam fanpage. However, one can change this configuration for his/her own needs. After running this program, the excel and CSV files are produced
 Programmer: Phuong V. Nguyen
 phuong.nguyen@economics.uni-kiel.de
 """
@@ -10,6 +9,7 @@ from facebook_scraper import get_posts
 import pandas as pd
 from IPython.display import display
 
+name_fp='BIDVbankvietnam'
 pages=10
 def main():
     post_id=[]
@@ -23,7 +23,7 @@ def main():
     shares=[]
     post_url=[]
     link=[]
-    for post in get_posts('bank.hvnh', pages=pages):
+    for post in get_posts(name_fp, pages=pages):
         post_id.append(post['post_id'])
         text.append(post['text'])
         post_text.append(post['post_text'])
@@ -46,12 +46,14 @@ def main():
                  'shares':shares,
                  'post_url':post_url,
                  'link':link})
-    display(df.head(5).T)
-    #print(df.head(5).T)
-    df.to_excel("Fanpage_fb.xlsx")  
-    df.to_csv("Fanpage_fb.csv")
-    print('DONE !')
-    
+    display(df.head(5))
+    print('Hey! I successfully scraped data from The Facebook Fanpage ' + name_fp)
+    print('%d Posts On The Facebook Fanpage '%len(df) + name_fp)
+    df.to_excel(name_fp+ '.xlsx')  
+    df.to_csv(name_fp+'.csv')
     
 if __name__ == '__main__':
     main()
+
+
+# In[ ]:
