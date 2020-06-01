@@ -1,6 +1,6 @@
 """
 This program is to scrape data on the post from a specific Facebook fan page.
-In this program, we target the BIDVbankvietnam fanpage. However, one can change this configuration for his/her own needs. After running this program, the excel and CSV files are produced
+In this program, we target the Techcombank fanpage. However, one can change this configuration for his/her own needs. After running this program, the excel and CSV files are produced
 Programmer: Phuong V. Nguyen
 phuong.nguyen@economics.uni-kiel.de
 """
@@ -9,7 +9,7 @@ from facebook_scraper import get_posts
 import pandas as pd
 from IPython.display import display
 
-name_fp='BIDVbankvietnam'
+name_fp='Techcombank'
 pages=10
 def main():
     post_id=[]
