@@ -74,7 +74,7 @@ class transform():
                                      'post_url':post_url,'link':link})
         self.no_obs=3
         print('The first %d observations'%self.no_obs +'\n...')
-        #display(self.data.head(self.no_obs).T)
+        display(self.data.head(self.no_obs).T)
         print('I am done!')
         return self.data
             
