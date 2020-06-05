@@ -125,6 +125,5 @@ class main():
     transform=transform(extract)
     load=load(transform)
     
-    
 if __name__ == '__main__':
     main()
