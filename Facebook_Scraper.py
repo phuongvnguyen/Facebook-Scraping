@@ -119,6 +119,12 @@ class load():
         self.export_exl=data.to_excel(name_file+'.xlsx')
         print('Data is exported successfully!')
         return self.export_csv
+
+class main():
+    extract=extract(fanpage)
+    transform=transform(extract)
+    load=load(transform)
+    
     
 if __name__ == '__main__':
-    load(transform(extract(fanpage)))
+    main()
