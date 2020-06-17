@@ -29,17 +29,17 @@ fanpage='BIDVbankvietnam'
 
 class extract():
     
-    print('----------------Thank'+Bold+ ' Mr. Nguyen'+End+' so much for providing this computer programe----------------')
+    print('----------------Thank'+'\033[0m'+ ' Mr. Nguyen'+'\033[0m'+' so much for providing this computer programe----------------')
     print('-----------------------------phuong.nguyen@economics.uni-kiel.de-----------------------------')
     
     def __init__(self,fanpage):
-        print(Bold+'Extract'+End)
+        print('\033[1m'+'Extract'+'\033[0m')
         self.name_fp=fanpage
         self.pages=5
         self.post_id,self.text,self.shared_text,self.time,self.image,self.likes,        self.comments,self.shares,self.post_url,self.link =self.scrape(self.name_fp,self.pages)
         
     def scrape(self,name_fp,page):
-        print('I am scraping data from the '+ Bold+ name_fp+ End+' Facebook fanpage \n...')
+        print('I am scraping data from the '+ '\033[1m'+ name_fp+ End+' Facebook fanpage \n...')
         self.post_id,self.text,self.post_text,self.shared_text,self.time,self.image,self.likes,        self.comments,self.shares,self.post_url,self.link=[],[],[],[],[],[],[],[],[],[],[]
         for post in get_posts(name_fp, pages=page):
             self.post_id.append(post['post_id'])
@@ -59,7 +59,7 @@ class extract():
 class transform():
     
     def __init__(self,extract):
-        print(Bold+'Transform'+End)
+        print('\033[1m'+'Transform'+'\033[0m')
         self.post_id,self.text,self.post_text,self.shared_text,self.time,self.image,self.likes,        self.comments,self.shares,self.post_url,self.link =extract.post_id,extract.text,        extract.post_text,extract.shared_text,extract.time,extract.image,extract.likes,        extract.comments,extract.shares,extract.post_url,extract.link 
         self.trans_data=self.to_pandas(self.post_id,self.text,self.post_text,self.shared_text,self.time,
                                  self.image,self.likes,self.comments,self.shares,self.post_url,
@@ -81,7 +81,7 @@ class transform():
 class load():
     
     def __init__(self,transform):
-        print(Bold+'Load'+End)
+        print('\033[1m'+'Load'+'\033[0m')
         self.loaded_data=transform.trans_data
         #self.path=r'C:\Users\Phuong_1\Documents\PhuongDatabase'
         self.path=r'Phuong_database.db'
